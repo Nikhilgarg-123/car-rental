@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+ <style> 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: -webkit-linear-gradient(left, skyblue, #fa4299);
+}
+::selection{
+  background: #fa4299;
+  color: #fff;
+}
+.wrapper{
+  overflow: hidden;
+  max-width: 390px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+.wrapper .title-text{
+  display: flex;
+  width: 200%;
+}
+.wrapper .title{
+  width: 50%;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.wrapper .slide-controls{
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  margin: 30px 0 10px 0;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+.slide-controls .slide{
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.6s ease;
+}
+.slide-controls label.signup{
+  color: #000;
+}
+.slide-controls .slider-tab{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  z-index: 0;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+input[type="radio"]{
+  display: none;
+}
+#signup:checked ~ .slider-tab{
+  left: 50%;
+}
+#signup:checked ~ label.signup{
+  color: #fff;
+  cursor: default;
+  user-select: none;
+}
+#signup:checked ~ label.login{
+  color: #000;
+}
+#login:checked ~ label.signup{
+  color: #000;
+}
+#login:checked ~ label.login{
+  cursor: default;
+  user-select: none;
+}
+.wrapper .form-container{
+  width: 100%;
+  overflow: hidden;
+}
+.form-container .form-inner{
+  display: flex;
+  width: 200%;
+}
+.form-container .form-inner form{
+  width: 50%;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.form-inner form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+.form-inner form .field input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  border-bottom-width: 2px;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+.form-inner form .field input:focus{
+  border-color: #fc83bb;
+  /* box-shadow: inset 0 0 3px #fb6aae; */
+}
+.form-inner form .field input::placeholder{
+  color: #999;
+  transition: all 0.3s ease;
+}
+form .field input:focus::placeholder{
+  color: #b3b3b3;
+}
+.form-inner form .pass-link{
+  margin-top: 5px;
+}
+.form-inner form .signup-link{
+  text-align: center;
+  margin-top: 30px;
+}
+.form-inner form .pass-link a,
+.form-inner form .signup-link a{
+  color: #fa4299;
+  text-decoration: none;
+}
+.form-inner form .pass-link a:hover,
+.form-inner form .signup-link a:hover{
+  text-decoration: underline;
+}
+form .btn{
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+form .btn .btn-layer{
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  background: -webkit-linear-gradient(right, #a445b2, #fa4299, #a445b2, #fa4299);
+  border-radius: 5px;
+  transition: all 0.4s ease;;
+}
+form .btn:hover .btn-layer{
+  left: 0;
+}
+form .btn input[type="submit"]{
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  background: none;
+  border: none;
+  color: #fff;
+  padding-left: 0;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+</style>
+<script>
+function f3()
+			{
+				var email=document.getElementById("i3").value;
+				var ep=/^\w+[0-9]*[#.]?[a-z0-9]+(@)[a-z]+(.com|.in|.edu.in)$/;
+				
+				if(ep.test(email))
+				{
+					document.getElementById("t3").style.color="green";
+					document.getElementById("t3").innerHTML="Correct";
+				}
+				else
+				{
+					document.getElementById("t3").style.color="red";
+					document.getElementById("t3").innerHTML="Incorrect";
+				}
+			}
+			function f33()
+			{
+				var email=document.getElementById("i3").value;
+				if(email.length==0)
+				{
+					document.getElementById("t3").style.color="black";
+					document.getElementById("t3").innerHTML="Fields With * Can't Be Left Empty!!";
+				}
+			}
+			
+			
+			function f4()
+			{
+				var password=document.getElementById("i4").value;
+				var p1=/[A-Z]+/;
+				var p2=/[a-z]+/;
+				var p3=/[0-9]+/;
+				var p4=/[!@#$%^&*]/;
+				var l=password.length;
+				
+				if(p1.test(password) && p2.test(password) && p3.test(password) && p4.test(password) && 6<=l && l<=20)
+				{
+					document.getElementById("t4").style.color="green";
+					document.getElementById("t4").style.fontSize="20px";
+					document.getElementById("t4").innerHTML="Correct";
+				}
+				else
+				{
+					if(l<6)
+					{
+						document.getElementById("t4").style.color="Black";
+						document.getElementById("t4").style.fontSize="20px";
+						document.getElementById("t4").innerHTML="Password Length is Too Less";
+					}
+					else
+					{
+						document.getElementById("t4").style.color="Black";
+						document.getElementById("t4").style.fontSize="14px";
+						document.getElementById("t4").innerHTML="Password Should Have an Uppercase, a Lowercase, a Digit and a Special Character";
+					}
+				}
+			}
+			function f44()
+			{
+				var password=document.getElementById("i4").value;
+				if(password.length==0)
+				{
+					document.getElementById("t4").style.color="black";
+					document.getElementById("t4").style.fontSize="20px";
+					document.getElementById("t4").innerHTML="Fields With * Can't Be Left Empty!!";
+				}
+			}
+			
+			
+			
+			
+			function f5()
+			{
+				var email=document.getElementById("i5").value;
+				var ep=/^\w+[0-9]*[#.]?[a-z0-9]+(@)[a-z]+(.com|.in|.edu.in)$/;
+				
+				if(ep.test(email))
+				{
+					document.getElementById("t5").style.color="green";
+					document.getElementById("t5").innerHTML="Correct";
+				}
+				else
+				{
+					document.getElementById("t5").style.color="red";
+					document.getElementById("t5").innerHTML="Incorrect";
+				}
+			}
+			function f55()
+			{
+				var email=document.getElementById("i5").value;
+				if(email.length==0)
+				{
+					document.getElementById("t5").style.color="black";
+					document.getElementById("t5").innerHTML="Fields With * Can't Be Left Empty!!";
+				}
+			}
+			
+			
+			function f6()
+			{
+				var password=document.getElementById("i6").value;
+				var p1=/[A-Z]+/;
+				var p2=/[a-z]+/;
+				var p3=/[0-9]+/;
+				var p4=/[!@#$%^&*]/;
+				var l=password.length;
+				
+				if(p1.test(password) && p2.test(password) && p3.test(password) && p4.test(password) && 6<=l && l<=20)
+				{
+					document.getElementById("t6").style.color="green";
+					document.getElementById("t6").style.fontSize="20px";
+					document.getElementById("t6").innerHTML="Correct";
+				}
+				else
+				{
+					if(l<6)
+					{
+						document.getElementById("t6").style.color="Black";
+						document.getElementById("t6").style.fontSize="20px";
+						document.getElementById("t6").innerHTML="Password Length is Too Less";
+					}
+					else
+					{
+						document.getElementById("t6").style.color="Black";
+						document.getElementById("t6").style.fontSize="14px";
+						document.getElementById("t6").innerHTML="Password Should Have an Uppercase, a Lowercase, a Digit and a Special Character";
+					}
+				}
+			}
+			function f66()
+			{
+				var password=document.getElementById("i6").value;
+				if(password.length==0)
+				{
+					document.getElementById("t6").style.color="Red";
+					document.getElementById("t6").style.fontSize="20px";
+					document.getElementById("t6").innerHTML="Fields With * Can't Be Left Empty!!";
+				}
+			}
+			
+			
+			
+			
+			
+			
+			
+			function f7()
+			{
+				var confirmpass=document.getElementById("i7").value;
+				var password=document.getElementById("i6").value;
+				
+				if(password===confirmpass)
+				{
+					document.getElementById("t7").style.color="Green";
+					document.getElementById("t7").innerHTML="Correct";
+				}
+				else
+				{
+					document.getElementById("t7").style.color="Black";
+					document.getElementById("t7").innerHTML="Passwords Doesn't Match";
+				}
+			}
+			function f77()
+			{
+				var confirmpass=document.getElementById("i5").value;
+				if(confirmpass.length==0)
+				{
+					document.getElementById("t7").style.color="black";
+					document.getElementById("t7").innerHTML="Fields With * Can't Be Left Empty!!";
+				}
+			}
+			
+			
+			
+			
+			function f8()
+			{
+				var v1=document.getElementById("t3").innerHTML;
+				var v2=document.getElementById("t4").innerHTML;
+				
+				var v6="Correct";
+				var v7="",v8="Fields With * Can't Be Left Empty!!";
+				
+				
+				
+
+			   if(v1===v2 && v1===v6)
+                {
+                    window.open('home 1 final.html', 'newwindow'); 
+                }
+                else
+                {
+					if(v1===v7||v2===v7||v1===v8||v2===v8)
+                    {
+						window.alert("One Or More Required Input Fields Are Empty");
+					}
+					else
+					{
+						window.alert("All Provided Details Are Not Correct");
+					}
+                }
+			}
+			
+			
+			
+			
+			function f9()
+			{
+				
+				var v13=document.getElementById("t5").innerHTML;
+				var v14=document.getElementById("t6").innerHTML;
+				var v15=document.getElementById("t7").innerHTML;
+				var v16="Correct";
+				var v17="",v18="Fields With * Can't Be Left Empty!!";
+				
+                if( v13===v14 && v13===v15 && v13===v16)
+                {
+                   window.open('home 1 final.html', 'newwindow'); 
+                }
+                else
+                {
+					if(v13===v17||v14===v17||v15===v17||v13===v18||v14===v18||v15===v18)
+                    {
+						window.alert("One Or More Required Input Fields Are Empty");
+					}
+					else
+					{
+						window.alert("All Provided Details Are Not Correct");
+					}
+                }
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+
+</script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title-text">
+        <div class="title login">
+Login Form</div>
+<div class="title signup">
+Signup Form</div>
+</div>
+<div class="form-container">
+        <div class="slide-controls">
+          <input type="radio" name="slide" id="login" checked>
+          <input type="radio" name="slide" id="signup">
+          <label for="login" class="slide login">Login</label>
+          <label for="signup" class="slide signup">Signup</label>
+          <div class="slider-tab">
+</div>
+</div>
+<div class="form-inner">
+          <form action="#" class="login">
+            <div class="field">
+              <input type="text" placeholder="Email Address" id="i3" onkeyup="f3()" onblur="f33()" required>
+            <div id="t3"></div></div>
+<div class="field">
+              <input type="password" placeholder="Password" id="i4" required onkeyup="f4()" onblur="f44()" required>
+        <div id="t4"></div>    </div>
+
+<div class="field btn">
+              <div class="btn-layer">
+</div>
+<input type="submit" value="Login" onclick="f8()">
+<p id="demo"></p>
+            </div>
+			
+			
+			
+			
+<div class="signup-link">
+Not a member? <a href="">Signup now</a></div>
+</form>
+<form action="#" class="signup">
+            <div class="field">
+              <input type="text" placeholder="Email Address" id="i5" onkeyup="f5()" onblur="f55()" required>
+			  <div id="t5"></div>
+            </div>
+<div class="field">
+              <input type="password" placeholder="Password" id="i6" onkeyup="f6()" onblur="f66()" required>
+           <div id="t6"></div> </div>
+<div class="field">
+              <input type="password" placeholder="Confirm password"  id="i7" onkeyup="f7()" onblur="f77()" required><div id="t7"></div>
+            </div>
+<div class="field btn">
+              <div class="btn-layer">
+</div>
+<input type="submit" value="Signup"onclick="f9()">
+            </div>
+</form>
+</div>
+</div>
+</div>
+<script>
+      const loginText = document.querySelector(".title-text .login");
+      const loginForm = document.querySelector("form.login");
+      const loginBtn = document.querySelector("label.login");
+      const signupBtn = document.querySelector("label.signup");
+      const signupLink = document.querySelector("form .signup-link a");
+      signupBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+      });
+      loginBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "0%";
+        loginText.style.marginLeft = "0%";
+      });
+      signupLink.onclick = (()=>{
+        signupBtn.click();
+        return false;
+      });
+    </script>
+
+  </body>
+</html>

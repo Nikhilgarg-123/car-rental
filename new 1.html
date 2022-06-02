@@ -1,0 +1,356 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.footer {
+        height: auto;
+        width: 100%;
+        background-color: #222;
+		
+		
+		
+		
+		
+		
+		
+		}
+		
+		.card:hover {
+    transition: all .5s;
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 255, 0.212);
+	background:lightgrey;
+		
+		}
+		
+		.btn-show {
+        background-image: linear-gradient(to right bottom, blue, rgba(110, 187, 110, 0.952));
+        color: white;
+        border: none;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+	
+	
+	
+	#menu-btn:hover {
+    transition: all .5s;
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 255, 0.212);
+	background:lightgreen;
+		
+		}
+	
+	
+	
+	
+	.nav-item:hover {
+    border-bottom: 2px solid black;
+    transition: all .4s;
+    padding-top: 4rem;
+}
+nav {
+    box-shadow: 2px -2px 0 5px rgba(0, 0, 255, 0.673);
+}
+.nav-item {
+
+    transition: all .4s;}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		</style>
+
+		
+		<script>
+			function f1()
+			{
+				var name=document.getElementById("i1").value;
+				var np=/(^[A-Z]{1}[a-z]+$|^[A-Z]{1}[a-z]+\s{1}[A-Z]{1}[a-z]+$)/;
+				
+				if(np.test(name))
+				{
+					document.getElementById("t1").style.color="black";
+					document.getElementById("t1").innerHTML="Correct";
+				}
+				else
+				{
+					document.getElementById("t1").style.color="Black";
+					document.getElementById("t1").innerHTML="Incorrect";
+				}
+			}
+			function f11()
+			{
+				var name=document.getElementById("i1").value;
+				if(name.length==0)
+				{
+					document.getElementById("t1").style.color="black";
+					document.getElementById("t1").innerHTML="Fields With * Can't Be Left Empty!!";
+				}
+			}
+			function f2()
+			{
+				var mobile=document.getElementById("i2").value;
+				var mp=/^[0-9]{10}$/;
+				
+				if(mp.test(mobile))
+				{
+					document.getElementById("t2").style.color="black";
+					document.getElementById("t2").innerHTML="Correct";
+				}
+				else
+				{
+					document.getElementById("t2").style.color="Black";
+					document.getElementById("t2").innerHTML="Incorrect";
+				}
+			}
+			function f22()
+			{
+				var mobile=document.getElementById("i2").value;
+				if(mobile.length==0)
+				{
+					document.getElementById("t2").style.color="black";
+					document.getElementById("t2").innerHTML="Fields With * Can't Be Left Empty!!";
+				}
+			}
+			function f3()
+			{
+				var email=document.getElementById("i3").value;
+				var ep=/^\w+[0-9]*[#.]?[a-z0-9]+(@)[a-z]+(.com|.in|.edu.in)$/;
+				
+				if(ep.test(email))
+				{
+					document.getElementById("t3").style.color="black";
+					document.getElementById("t3").innerHTML="Correct";
+				}
+				else
+				{
+					document.getElementById("t3").style.color="Black";
+					document.getElementById("t3").innerHTML="Incorrect";
+				}
+			}
+			function f33()
+			{
+				var email=document.getElementById("i3").value;
+				if(email.length==0)
+				{
+					document.getElementById("t3").style.color="black";
+					document.getElementById("t3").innerHTML="Fields With * Can't Be Left Empty!!";
+				}
+			}
+			
+			function f6()
+			{
+				var v1=document.getElementById("t1").innerHTML;
+				var v2=document.getElementById("t2").innerHTML;
+				var v3=document.getElementById("t3").innerHTML;
+				var v6="Correct";
+				var v7="",v8="Fields With * Can't Be Left Empty!!";
+				
+                if(v1===v2 && v1===v3  && v1===v6)
+                {
+                    window.alert("All Provided Details Are Correct");
+                }
+                else
+                {
+					if(v1===v7||v2===v7||v3===v7||v1===v8||v2===v8||v3===v8)
+                    {
+						window.alert("One Or More Required Input Fields Are Empty");
+					}
+					else
+					{
+						window.alert("All Provided Details Are Not Correct");
+					}
+                }
+			}
+		</script>
+	</head>
+	
+	<body>
+	
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-light" style=" background-color: rgba(255, 255, 255, 0.859); position: fixed; width: 100%; z-index: 300;">
+        <div class="container-fluid ml-5 "><img src="pic2.jpeg" class="img-thumbnail" id="img-home" height="100px" width="200px">
+          <a class="navbar-brand " href="#"><h2><font color="red"> Car<br /> </font><font color="blue">Rental</font></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+              <li class="nav-item mr-5 pr-5 pt-4 pb-4 pl-5">
+                <a class="nav-link active" style="color: black;" aria-current="page" href="home 1 final.html">HOME</a>
+              </li>
+             
+              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
+                <a class="nav-link" style="color: black;"  href="home 1 final.html#ng11">CAR RENT</a>
+              </li>
+              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
+                <a class="nav-link" style="color: black;"  href="about.html">ABOUT US</a>
+              </li>
+              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
+                <a class="nav-link" style="color: black;"  href="contact.html">CONTACT US</a>
+              </li>
+              
+           
+            </ul>
+         
+          </div>
+        </div>
+      </nav>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<br /><br /><br /><br /><br /><br /><br /><br />
+	
+	
+<section class="about mb-5">
+    <div class="container pt-5">
+        <Div class="row">
+            <div class="col">
+                <img src="about us.jpg" class="border  border-success rounded img-thumbnail" id="img-home" height="400px" width="600px">
+            </div>
+            <div class="col mt-5">
+             
+                <h2>BOOKING FORM</h2>
+		<table cellspacing="5" cellpadding="5">
+			<tr>
+				<th>*Name :</th>
+				<td><input type="text" id="i1" onkeyup="f1()" onblur="f11()" class="form-control"></td>
+				<td id="t1"></td>
+			</tr>
+			
+			<tr>
+				<th>*Mobile :</th>
+				<td><input type="text" class="form-control" id="i2" maxlength="10" onkeyup="f2()" onblur="f22()"></td>
+				<td id="t2"></td>
+			</tr>
+			
+			<tr>
+				<th>*Email :</th>
+				<td><input type="text" id="i3" class="form-control" onkeyup="f3()" onblur="f33()"></td>
+				<td id="t3"></td>
+			</tr>
+			
+			  <tr><th> 
+			   Address</th><td>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </td></tr>
+			   
+			   <tr><td><div class="mb-3 mt-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">I've read and agree with the Terms & Policy</label>
+            </div></td></tr>
+			   
+			   
+			<tr>
+				<td colspan="2" align="center"><input type="submit" onclick="f6()"  class="btn btn-success pl-4 pr-4"></td>
+			</tr>
+		</table>
+        </Div>
+    </div>
+</section>
+	
+		
+		<footer class="footer">
+  <div class="container mt-5 pt-5" style="color: white;">
+    <Div class="row">
+      <Div class="col">
+        <h4>Car Rental</h4><hr>
+        
+		<div class="row">
+    <div class="col-4">
+      Get Safe, Sanitized Car , Flexible Rentals. Stay safe and choose Self Drive Car<br><br />Pick Your Favourite Car
+    </div>
+    <div class="col-4">
+      <h3>LINKS</h3>
+	  
+	  <ul><h4>
+	  <li><a href="home 1 final.html">Home</a></li>
+	  <li><a href="home 1 final.html#ng11">CAR RENT</a></li>
+	  <li><a href="about.html">About Us</a></li>
+	  <Li><a href="contact.html">Contact us</a></Li>
+	  </h4>
+    </div>
+    <div class="col-4"><h3>Details</h3><UL><LI><A HREF="https://g.page/ChitkaraU?share">
+      CHITKARA UNIVERSITY , <BR />
+	  RAJPURA,PUNJAB</A></LI><br /><LI><a href="tel:8528656145">
+	  Call Us</a></LI><br />
+	  <LI><a href="mailto:NIKHILGARG.DRB@gmail.com"> MAIL US</a></LI>
+	  
+    </div>
+  </div>
+		
+		
+		
+      </Div>
+    </Div>
+  </div>
+  <div class="container" style="color: white; margin-top: 170px;">
+    <Div class="row">
+<Div class="col text-center">
+  © Copyright 2021: <a href="mailto:yossefaymanzedan@gmail.com" style="color: white; " class="btn-show" role="button" >CAR RENTAL</a>
+</Div>
+    </Div>
+  </div>
+</footer>
+   
+	
+	
+</section>
+    <!-- Optional JavaScript -->
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  </body>
+</html>
